@@ -2,13 +2,24 @@
 alias sudo='sudo '
 # 色付け
 alias ll='ls -lGF'
-alias ls='ls -GF'
+alias ls='ls -GF --color=auto'
 # Neovim
 alias vi='nvim'
+alias cn='cd ~/.config/nvim'
 # python
 alias python='python3'
 alias pip='pip3'
 alias py='python3'
+# git
+alias g='git'
+alias ga='git add'
+alias gd='git diff'
+alias gs='git status'
+alias gp='git push'
+alias gb='git branch'
+alias gch='git checkout'
+alias gf='git fetch'
+alias gc='git commit'
 
 add_newline() {
 	if [[ -z $PS1_NEWLINE_LOGIN ]]; then
@@ -29,6 +40,10 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 # コマンドの色付け
 zplug "zsh-users/zsh-syntax-highlighting"
+# 検索を便利に
+zplug "peco/peco"
+# リポジトリ管理
+zplug "x-motemen/ghq"
 
 # なければインストール
 if ! zplug check --verbose; then
@@ -41,3 +56,56 @@ fi
 zplug load
 
 zstyle ':completion:*:(cd|nvim):*' matcher 'm:{a-z}={A-Z}'
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# peco用設定 ----------------------------------------------------------------
+# コマンド検索履歴
+function peco-history-selection(){
+        BUFFER='history -n 1 | tac  | awk '!a[$0]++' | peco'
+        CURSOR=$#BUFFER
+        zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+## コマンド検索履歴からディレクトリ検索・移動
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+    zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+fi
+function peco-cdr (){
+    local selected_dir="$(cdr -l | sed 's/^[0-9]* *//' | peco)"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-cdr
+bindkey '^E' peco-cdr
+
+## カレントディレクトリ以下のディレクトリ検索・移動
+function find_cd() {
+    local selected_dir=$(find . -type d | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N find_cd
+bindkey '^X' find_cd
+
+## gitリポジトリ検索・移動
+function peco-src () {
+    local selected_dir=$(ghp list -p | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="CD ${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N peco-src
+bindkey '^G' peco-src
+
+# ---------------------------------------------------------------------------
