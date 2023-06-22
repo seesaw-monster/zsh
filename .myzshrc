@@ -5,6 +5,10 @@ alias ll='ls -lGF'
 alias ls='ls -GF'
 # Neovim
 alias vi='nvim'
+# python
+alias python='python3'
+alias pip='pip3'
+alias py='python3'
 
 add_newline() {
 	if [[ -z $PS1_NEWLINE_LOGIN ]]; then
