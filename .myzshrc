@@ -1,0 +1,39 @@
+# sudoにaliasしたコマンドを実行
+alias sudo='sudo '
+# 色付け
+alias ll='ls -lGF'
+alias ls='ls -GF'
+# Neovim
+alias vi='nvim'
+
+add_newline() {
+	if [[ -z $PS1_NEWLINE_LOGIN ]]; then
+		PS1_NEWLINE_LOGIN=TRUE
+	else
+		printf '¥n'
+	fi
+}
+
+# プラグイン管理
+source ~/.zplug/init.zsh
+# 自身を管理
+zplug "zplug/zplug", hook-build:'zplug --self-manage'
+
+# コマンド補完
+zplug "zsh-users/zsh-completions"
+# 過去のコマンドを自動的に補完
+zplug "zsh-users/zsh-autosuggestions"
+# コマンドの色付け
+zplug "zsh-users/zsh-syntax-highlighting"
+
+# なければインストール
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
+zstyle ':completion:*:(cd|nvim):*' matcher 'm:{a-z}={A-Z}'
