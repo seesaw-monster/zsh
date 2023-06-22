@@ -40,10 +40,6 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 # コマンドの色付け
 zplug "zsh-users/zsh-syntax-highlighting"
-# 検索を便利に
-zplug "peco/peco"
-# リポジトリ管理
-zplug "x-motemen/ghq"
 
 # なければインストール
 if ! zplug check --verbose; then
@@ -61,7 +57,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # peco用設定 ----------------------------------------------------------------
 # コマンド検索履歴
 function peco-history-selection(){
-        BUFFER='history -n 1 | tac  | awk '!a[$0]++' | peco'
+        BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
         CURSOR=$#BUFFER
         zle reset-prompt
 }
