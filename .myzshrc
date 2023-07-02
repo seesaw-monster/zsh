@@ -1,5 +1,7 @@
 # sudoにaliasしたコマンドを実行
 alias sudo='sudo '
+# 同様にnohupにも
+alias nohup='nohup '
 # 色付け
 alias ll='ls -lGF'
 alias ls='ls -GF --color=auto'
@@ -24,6 +26,9 @@ alias gch='git checkout'
 alias gf='git fetch'
 alias gc='git commit'
 alias gm='git merge'
+
+# github cli コマンド補完
+eval "$(gh completion -s zsh)"
 
 add_newline() {
 	if [[ -z $PS1_NEWLINE_LOGIN ]]; then
