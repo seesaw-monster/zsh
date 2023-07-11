@@ -31,6 +31,9 @@ alias gm='git merge'
 # github cli コマンド補完
 eval "$(gh completion -s zsh)"
 
+# カレンダーを2ヶ月分表示
+alias cal='cal -A 1'
+
 add_newline() {
 	if [[ -z $PS1_NEWLINE_LOGIN ]]; then
 		PS1_NEWLINE_LOGIN=TRUE
