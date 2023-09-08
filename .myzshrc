@@ -28,9 +28,6 @@ alias gf='git fetch'
 alias gc='git commit'
 alias gm='git merge'
 
-# github cli コマンド補完
-eval "$(gh completion -s zsh)"
-
 # カレンダーを2ヶ月分表示
 alias cal='cal -A 1'
 
@@ -105,16 +102,5 @@ function find_cd() {
 }
 zle -N find_cd
 bindkey '^X' find_cd
-
-## gitリポジトリ検索・移動
-function peco-src () {
-    local selected_dir=$(ghp list -p | peco)
-    if [ -n "$selected_dir" ]; then
-        BUFFER="CD ${selected_dir}"
-        zle accept-line
-    fi
-}
-zle -N peco-src
-bindkey '^G' peco-src
 
 # ---------------------------------------------------------------------------
