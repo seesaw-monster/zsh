@@ -52,6 +52,8 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 # コマンドの色付け
 zplug "zsh-users/zsh-syntax-highlighting"
+# ターミナルのテーマ
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # なければインストール
 if ! zplug check --verbose; then
