@@ -53,7 +53,7 @@ zplug "zsh-users/zsh-autosuggestions"
 # コマンドの色付け
 zplug "zsh-users/zsh-syntax-highlighting"
 # ターミナルのテーマ
-zplug romkatv/powerlevel10k, as:theme, depth:1
+# zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # なければインストール
 if ! zplug check --verbose; then
@@ -66,7 +66,7 @@ fi
 zplug load
 
 zstyle ':completion:*:(cd|nvim|ga):*' matcher 'm:{a-z}={A-Z}'
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # peco用設定 ----------------------------------------------------------------
 # コマンド検索履歴
