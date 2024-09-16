@@ -54,6 +54,8 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 # ターミナルのテーマ
 # zplug romkatv/powerlevel10k, as:theme, depth:1
+# Git のブランチ名・状態表示
+zplug "woefe/git-prompt.zsh"
 
 # なければインストール
 if ! zplug check --verbose; then
@@ -89,4 +91,9 @@ function find_cd() {
 zle -N find_cd
 bindkey '^X' find_cd
 
-# ---------------------------------------------------------------------------
+# git-prompt 用設定 ------------------------------------------------------------
+ZSH_THEME_GIT_PROMPT_PREFIX="( "
+ZSH_THEME_GIT_PROMPT_SUFFIX=" ) "
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" | "
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[cyan]%}"
+# ------------------------------------------------------------------------------
