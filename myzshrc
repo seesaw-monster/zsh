@@ -4,7 +4,8 @@ alias sudo='sudo '
 alias nohup='nohup '
 # 色付け
 alias ll='ls -lGF'
-alias ls='ls -GF --color=auto'
+alias ls='ls -GF'
+# alias ls='ls -GF --color=auto'
 # 再起コピー
 alias cpr='cp -r'
 # Neovim
