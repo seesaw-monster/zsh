@@ -41,6 +41,9 @@ add_newline() {
 	fi
 }
 
+# mkdir と cd を同時に実行するコマンド mkcd の定義
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
 # プラグイン管理
 source ~/.zplug/init.zsh
 # 自身を管理
