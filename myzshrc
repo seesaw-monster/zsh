@@ -70,7 +70,7 @@ fi
 
 zplug load
 
-zstyle ':completion:*:(cd|nvim|ga):*' matcher 'm:{a-z}={A-Z}'
+zstyle ':completion:*:(cd|nvim|cp):*' matcher 'm:{a-z}={A-Z}'
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # peco用設定 ----------------------------------------------------------------
