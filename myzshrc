@@ -55,8 +55,6 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 # コマンドの色付け
 zplug "zsh-users/zsh-syntax-highlighting"
-# ターミナルのテーマ
-# zplug romkatv/powerlevel10k, as:theme, depth:1
 # Git のブランチ名・状態表示
 zplug "woefe/git-prompt.zsh"
 
@@ -71,7 +69,6 @@ fi
 zplug load
 
 zstyle ':completion:*:(cd|nvim|cp):*' matcher 'm:{a-z}={A-Z}'
-# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # peco用設定 ----------------------------------------------------------------
 # コマンド検索履歴
@@ -105,4 +102,6 @@ ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚ "
 ZSH_THEME_GIT_PROMPT_UNTRACKED="… "
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑ "
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔ "
+# git-autosuggestions 用設定 ------------------------------------------------------------
+bindkey '^f' autosuggest-accept
 # ------------------------------------------------------------------------------
