@@ -56,7 +56,9 @@ zplug "zsh-users/zsh-autosuggestions"
 # コマンドの色付け
 zplug "zsh-users/zsh-syntax-highlighting"
 # Git のブランチ名・状態表示
-zplug "woefe/git-prompt.zsh"
+# zplug "woefe/git-prompt.zsh"
+# zsh theme
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # なければインストール
 if ! zplug check --verbose; then
@@ -92,16 +94,16 @@ zle -N find_cd
 bindkey '^X' find_cd
 
 # git-prompt 用設定 ------------------------------------------------------------
-ZSH_THEME_GIT_PROMPT_PREFIX="( "
-ZSH_THEME_GIT_PROMPT_SUFFIX=") "
-ZSH_THEME_GIT_PROMPT_SEPARATOR=" | "
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[cyan]%}"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}✖ "
-ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}● "
-ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚ "
-ZSH_THEME_GIT_PROMPT_UNTRACKED="… "
-ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑ "
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔ "
-# git-autosuggestions 用設定 ------------------------------------------------------------
+# ZSH_THEME_GIT_PROMPT_PREFIX="( "
+# ZSH_THEME_GIT_PROMPT_SUFFIX=") "
+# ZSH_THEME_GIT_PROMPT_SEPARATOR=" | "
+# ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[cyan]%}"
+# ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}✖ "
+# ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}● "
+# ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚ "
+# ZSH_THEME_GIT_PROMPT_UNTRACKED="… "
+# ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑ "
+# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔ "
+# git-autosuggestions 用設定 ---------------------------------------------------
 bindkey '^f' autosuggest-accept
 # ------------------------------------------------------------------------------
