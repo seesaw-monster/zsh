@@ -9,3 +9,8 @@ git clone git@github.com:seesaw-monster/zsh.git
 echo 'source $HOME/.config/zsh/myzshrc' >> ~/.zshrc
 source ~/.zshrc
 ```
+
+## Plugin manager
+```bash:install
+brew install zplug
+```
