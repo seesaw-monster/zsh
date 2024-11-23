@@ -11,7 +11,7 @@ alias cpr='cp -r'
 alias vi='nvim'
 # ファイル移動
 alias cnvim='cd ~/.config/nvim'
-alias czsh='cd ~/zsh/'
+alias czsh='cd ~/.config/zsh/'
 # python
 alias python='python3'
 alias pip='pip3'
