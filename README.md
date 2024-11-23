@@ -11,6 +11,19 @@ source ~/.zshrc
 ```
 
 ## Plugin manager
-```bash:install
+install
+```bash
 brew install zplug
+```
+インストール後次のコマンドをhomebrewに言われるがまま~/.zshrcに追記
+~/.zshrc
+```bash
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
+source $ZPLUG_HOME/init.zsh
+```
+次のコードも追記しないとコマンドが認識されなかった
+```bash
+if [ -f ${HOME}/.zplug/init.zsh ]; then
+    source ${HOME}/.zplug/init.zsh
+fi
 ```
