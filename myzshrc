@@ -44,6 +44,9 @@ add_newline() {
 # mkdir と cd を同時に実行するコマンド mkcd の定義
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
+# fuzzy finder
+source <(fzf --zsh)
+
 # プラグイン管理
 source ~/.zplug/init.zsh
 # 自身を管理
