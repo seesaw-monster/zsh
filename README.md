@@ -23,7 +23,7 @@ source $ZPLUG_HOME/init.zsh
 ```
 次のコードも追記しないとコマンドが認識されなかった
 ```bash
-if [ -f ${HOME}/.zplug/init.zsh ]; then
-    source ${HOME}/.zplug/init.zsh
+if [ -f $ZPLUG_HOME/init.zsh ]; then
+    source $ZPLUG_HOME/init.zsh
 fi
 ```
