@@ -48,7 +48,7 @@ function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 source <(fzf --zsh)
 
 # プラグイン管理
-source ~/.zplug/init.zsh
+source $ZPLUG_HOME/init.zsh
 # 自身を管理
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
