@@ -29,6 +29,9 @@ alias gchb='git checkout -b'
 alias gf='git fetch'
 alias gc='git commit'
 alias gm='git merge'
+# AtCode
+function test-case () { oj t -c "python3 $@" -d ./tests/}
+function teisyutu () { acc s "$@" -- --guess-python-interpreter pypy -w 0 -y}
 
 # カレンダーを2ヶ月分表示
 alias cal='cal -A 1'
