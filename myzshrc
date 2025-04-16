@@ -64,6 +64,8 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 # コマンドの色付け
 zplug "zsh-users/zsh-syntax-highlighting"
+# 仕えていない alias を指摘
+zplug "MichaelAquilina/zsh-you-should-use"
 # zsh theme
 zplug romkatv/powerlevel10k, as:theme, depth:1
 
