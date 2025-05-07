@@ -33,19 +33,30 @@ alias gm='git merge'
 function test-case () { oj t -c "python3 $@" -d ./tests/}
 function teisyutu () { acc s "$@" -- --guess-python-interpreter pypy -w 0 -y}
 
-# カレンダーを2ヶ月分表示
-alias cal='cal -A 1'
-
-add_newline() {
-	if [[ -z $PS1_NEWLINE_LOGIN ]]; then
-		PS1_NEWLINE_LOGIN=TRUE
-	else
-		printf '¥n'
-	fi
-}
-
 # mkdir と cd を同時に実行するコマンド mkcd の定義
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+# 退勤時刻の計算
+taikin() {
+  if [[ -z "$1" ]]; then
+    echo "使用方法: taikin HH:MM"
+    return 1
+  fi
+
+  # 入力が HH:MM の形式か確認
+  if [[ "$1" =~ ^([01]?[0-9]|2[0-3]):[0-5][0-9]$ ]]; then
+    # 現在の日付と入力された時刻を使って日時を構築し、8時間30分遅らせる
+    result=$(date -d "$1 today +8 hours +30 minutes" +"%H:%M" 2>/dev/null)
+    if [[ $? -ne 0 ]]; then
+      echo "無効な時刻です: $1"
+      return 1
+    fi
+    echo "$result"
+  else
+    echo "時刻は HH:MM の形式で入力してください"
+    return 1
+  fi
+}
 
 # fuzzy finder
 source <(fzf --zsh)
