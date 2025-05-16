@@ -77,6 +77,8 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 # 仕えていない alias を指摘
 zplug "MichaelAquilina/zsh-you-should-use"
+# bat
+zplug "fdellwing/zsh-bat"
 # zsh theme
 zplug romkatv/powerlevel10k, as:theme, depth:1
 
