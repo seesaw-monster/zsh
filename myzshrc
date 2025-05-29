@@ -92,7 +92,7 @@ fi
 
 zplug load
 
-zstyle ':completion:*:(cd|nvim|cp):*' matcher 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher 'm:{a-z}={A-Z}'
 
 # peco用設定 ----------------------------------------------------------------
 # コマンド検索履歴
