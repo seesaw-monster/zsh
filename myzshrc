@@ -19,8 +19,12 @@ alias czsh='cd ~/.config/zsh/'
 alias python='python3'
 alias pip='pip3'
 alias py='python3'
+# Claude Code
+alias c='claude'
 # git alias の読み込み
 source ~/.config/zsh/git-aliases.zsh
+
+# コマンド --------------------------------
 # AtCode
 function test-case () { oj t -c "python3 $@" -d ./tests/}
 function teisyutu () { acc s "$@" -- --guess-python-interpreter pypy -w 0 -y}
