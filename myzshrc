@@ -21,6 +21,8 @@ alias pip='pip3'
 alias py='python3'
 # Claude Code
 alias c='claude'
+# PLaMo
+alias translate='plamo-translate'
 # git alias の読み込み
 source ~/.config/zsh/git-aliases.zsh
 
