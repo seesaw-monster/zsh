@@ -26,6 +26,156 @@ alias translate='plamo-translate'
 # git alias の読み込み
 source ~/.config/zsh/git-aliases.zsh
 
+# 補完システムの初期化
+autoload -U compinit && compinit
+
+# git aliasの補完設定
+compdef g=git
+compdef ga=git
+compdef gaa=git
+compdef gapa=git
+compdef gau=git
+compdef gav=git
+compdef gb=git
+compdef gba=git
+compdef gbd=git
+compdef gbD=git
+compdef gbr=git
+compdef gbl=git
+compdef gbnm=git
+compdef gbsb=git
+compdef gbsg=git
+compdef gbsn=git
+compdef gbso=git
+compdef gbsr=git
+compdef gbss=git
+compdef gco=git
+compdef gcor=git
+compdef gcb=git
+compdef gcB=git
+compdef gcd=git
+compdef gcm=git
+compdef gc=git
+compdef gca=git
+compdef gcam=git
+compdef gcas=git
+compdef gcasm=git
+compdef gcmsg=git
+compdef gcs=git
+compdef gcsm=git
+compdef gcf=git
+compdef gcl=git
+compdef gclean=git
+compdef gd=git
+compdef gdca=git
+compdef gdcw=git
+compdef gdct=git
+compdef gds=git
+compdef gdt=git
+compdef gdw=git
+compdef gf=git
+compdef gfa=git
+compdef gff=git
+compdef gffs=git
+compdef gfff=git
+compdef gfo=git
+compdef gfp=git
+compdef glg=git
+compdef glgp=git
+compdef glgg=git
+compdef glgga=git
+compdef glgm=git
+compdef glo=git
+compdef glol=git
+compdef glols=git
+compdef glod=git
+compdef glods=git
+compdef glola=git
+compdef glog=git
+compdef gloga=git
+compdef glp=git
+compdef gm=git
+compdef gmom=git
+compdef gmtl=git
+compdef gmtlvim=git
+compdef gmum=git
+compdef gma=git
+compdef gms=git
+compdef gp=git
+compdef gpd=git
+compdef gpf=git
+compdef gpoat=git
+compdef gpod=git
+compdef gpr=git
+compdef gpu=git
+compdef gpv=git
+compdef gl=git
+compdef glum=git
+compdef gll=git
+compdef glr=git
+compdef glro=git
+compdef glrb=git
+compdef grb=git
+compdef grba=git
+compdef grbc=git
+compdef grbd=git
+compdef grbi=git
+compdef grbm=git
+compdef grbo=git
+compdef grbs=git
+compdef gr=git
+compdef gra=git
+compdef grh=git
+compdef grhh=git
+compdef groh=git
+compdef grm=git
+compdef grmc=git
+compdef grmv=git
+compdef grrm=git
+compdef grs=git
+compdef grset=git
+compdef grss=git
+compdef grst=git
+compdef grt=git
+compdef gru=git
+compdef grup=git
+compdef grv=git
+compdef gsh=git
+compdef gshow=git
+compdef gsi=git
+compdef gsps=git
+compdef gss=git
+compdef gst=git
+compdef gsb=git
+compdef gsta=git
+compdef gstaa=git
+compdef gstc=git
+compdef gstd=git
+compdef gstl=git
+compdef gstp=git
+compdef gsts=git
+compdef gstu=git
+compdef gstall=git
+compdef gsu=git
+compdef gsw=git
+compdef gswc=git
+compdef gswm=git
+compdef gswd=git
+compdef gt=git
+compdef gta=git
+compdef gts=git
+compdef gtv=git
+compdef gtl=git
+compdef gwt=git
+compdef gwta=git
+compdef gwtls=git
+compdef gwtmv=git
+compdef gwtrm=git
+compdef gwch=git
+
+# その他のaliasの補完設定
+compdef vi=nvim
+
 # コマンド --------------------------------
 # AtCode
 function test-case () { oj t -c "python3 $@" -d ./tests/}
@@ -57,7 +207,9 @@ taikin() {
 }
 
 # fuzzy finder
-source <(fzf --zsh)
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
 
 # プラグイン管理
 source $ZPLUG_HOME/init.zsh
