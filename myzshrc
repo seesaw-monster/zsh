@@ -23,6 +23,8 @@ alias py='python3'
 alias c='claude'
 # PLaMo
 alias translate='plamo-translate'
+# Lazydocker
+alias lzd='lazydocker'
 # git alias の読み込み
 source ~/.config/zsh/git-aliases.zsh
 
@@ -211,6 +213,14 @@ fzi() {
   local selected_file=$(fzf)
   if [ -n "$selected_file" ]; then
     nvim "$selected_file"
+  fi
+}
+
+# fzfでディレクトリを選択してcdする
+fd() {
+  local selected_dir=$(find . -type d | fzf)
+  if [ -n "$selected_dir" ]; then
+    cd "$selected_dir"
   fi
 }
 
